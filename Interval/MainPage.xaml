@@ -10,38 +10,65 @@
 
     <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="185"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
-            <StackPanel x:Name="menu_panel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <StackPanel.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF32DA32"/>
-                        <GradientStop Color="#FF127C12" Offset="1"/>
-                    </LinearGradientBrush>
-                </StackPanel.Background>
-                <Image HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Source="/Assets/logo.png" Width="150"/>
-                <Button x:Name="btn_newProject" Content="NEW PROJECT" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Background="#FF42CDE3" FontFamily="Leelawadee UI" FontWeight="Bold" FontSize="18" FocusVisualPrimaryBrush="#FFF3AF4C" Foreground="White" Click="Btn_newProject_Click" FocusVisualSecondaryBrush="White"/>
-                <ToggleButton x:Name="btn_projects1" Content="Projects" Background="{x:Null}" HorizontalAlignment="Stretch" Foreground="White" FontSize="18" />
-                <ToggleButton x:Name="btn_clients" Content="Clients" Background="{x:Null}" HorizontalAlignment="Stretch" Foreground="White" FontSize="18" />
-                <ToggleButton x:Name="btn_reports" Content="Reports" Background="{x:Null}" HorizontalAlignment="Stretch" Foreground="White" FontSize="18" />
- 
-                <StackPanel VerticalAlignment="Bottom" >
-                    <Button Foreground="White" Content="Settings" Background="{x:Null}" HorizontalAlignment="Center" FontSize="18" />
-                </StackPanel>
-            </StackPanel>
-        
-        
-            <StackPanel x:Name="panel_projects" Margin="5,0,5,0" Grid.Column="1" >
-                <StackPanel x:Name="txt_category" Margin="0,0,0,0" Background="#FF31D831" >
-                    <TextBlock FontSize="18" Text="Projects" Margin="5,5,5,5" Foreground="White" FontWeight="Bold" FontStretch="Normal" />
-                </StackPanel>
-            </StackPanel>
+
+        <RelativePanel>
+            <Button Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="28" Click="Btn_newProject_Click"/>
+        </RelativePanel>
+        <SplitView Name="Splitview_Menu" 
+                   Grid.Row="1" 
+                   DisplayMode="CompactOverlay" 
+                   OpenPaneLength="175" 
+                   HorizontalAlignment="Left" FontFamily="Segoe UI">
+            <SplitView.Pane>
+                <ListView SelectionMode="Single" Name="IconsListBox" SelectionChanged="IconsListBox_SelectionChanged">
+                    <ListView.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF38951B" Offset="1"/>
+                            <GradientStop Color="#FF47A629" Offset="0"/>
+                        </LinearGradientBrush>
+                    </ListView.Background>
+                    <ListViewItem Name="ProjectsListBoxItem">
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="&#xE12A;" Foreground="White" />
+                            <TextBlock Text="Projects" FontSize="18" Margin="20,0,0,0" FocusVisualPrimaryBrush="Black" Foreground="White"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Name="ClientsListBoxItem">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="&#xE136;" Foreground="White"/>
+                            <TextBlock Text="Clients" FontSize="18" Margin="20,0,0,0" Foreground="White"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Name="ReportsListBoxItem">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="&#xE133;" Foreground="White"/>
+                            <TextBlock Text="Reports" FontSize="18" Margin="20,0,0,0" Foreground="White"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Name="SettingsListBoxItem">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="&#xE115;" Foreground="White"/>
+                            <TextBlock Text="Settings" FontSize="18" Margin="20,0,0,0" Foreground="White"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </SplitView.Pane>
+
+            <SplitView.Content >
+                
+                <Frame x:Name="MainFrame"/>
+            </SplitView.Content>
+        </SplitView>
 
     </Grid>
 

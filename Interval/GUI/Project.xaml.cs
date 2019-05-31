@@ -41,8 +41,17 @@ namespace Interval.GUI
 
         private void showProjectDetails(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("test");
+
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_remove_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

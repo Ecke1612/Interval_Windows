@@ -122,6 +122,9 @@
     <Compile Include="GUI\Project.xaml.cs">
       <DependentUpon>Project.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ProjectsPage.xaml.cs">
+      <DependentUpon>ProjectsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Logic\Project\Timer.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -160,6 +163,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="GUI\Project.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ProjectsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

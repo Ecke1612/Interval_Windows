@@ -31,8 +31,21 @@ namespace Interval
 
         private void Btn_newProject_Click(object sender, RoutedEventArgs e)
         {
-            Project p = new Project();
-            panel_projects.Children.Add(p);
+            Splitview_Menu.IsPaneOpen = !Splitview_Menu.IsPaneOpen;
+        }
+
+        private void IconsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(ProjectsListBoxItem.IsSelected)
+            {
+                MainFrame.Navigate(typeof(ProjectsPage));
+            } else if(ClientsListBoxItem.IsSelected)
+            {
+                
+            } else if(ReportsListBoxItem.IsSelected)
+            {
+                
+            }
         }
     }
 }

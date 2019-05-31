@@ -1,0 +1,3 @@
+LightGreen: 126 226 104
+MainGreen: 52 128 28
+DarkGreen: 

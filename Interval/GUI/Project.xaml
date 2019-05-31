@@ -6,38 +6,106 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="50"
-    d:DesignWidth="180" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    d:DesignHeight="100"
+    d:DesignWidth="200" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-    <Grid BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,2,1,2"  >
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFC3ECD2"/>
-                <GradientStop Color="#FF2EB05D" Offset="1"/>
-                <GradientStop Color="#FF6AC98D" Offset="0.99"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="135"/>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+    <ListViewItem Padding="0,0,0,0" Background="#FFF1F1F1" Margin="5,5,5,5">
+        <Grid IsHitTestVisible="False">
+       
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
+            <Border VerticalAlignment="Center"
+                    Background="DarkCyan" 
+                    CornerRadius="20">
+                <TextBlock x:Name="FirstChar_Client" 
+                           Text="P" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Foreground="White" 
+                           FontWeight="Bold" 
+                           FontSize="18"/>
+            </Border>
+            
+            <!--
+            <Button Grid.RowSpan="3" Grid.Column="4" x:Name="btn_start" Content="" Width="32" Height="32" Click="Btn_start_Click" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/playbutton.png"/>
+                </Button.Background>
+            </Button>
+            -->
+               
+            <Border  Grid.RowSpan="3" Grid.Column="4" 
+                     Width="32" Height="32" 
+                     Background="{StaticResource MainGreen}"
+                     CornerRadius="25">
+                <Button x:Name="btn_start" Content="&#xF5B0;" 
+                        FontFamily="Segoe MDL2 Assets" FontSize="22" FontWeight="Bold"
+                        Foreground="White" Background="{x:Null}"
+                        Padding="0,0,0,0"
+                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Click="Btn_start_Click"/>
+            </Border>
+            
+            <TextBox HorizontalAlignment="Center" 
+                     Grid.Column="2"
+                     Text="Projekt Name" 
+                     FontSize="18" 
+                     Height="Auto" 
+                     Grid.Row="1" 
+                     BorderBrush="{x:Null}"  
+                     Background="{x:Null}" 
+                     Foreground="{StaticResource DarkBlueBrush}" 
+                     Padding="0,0,0,0" 
+                     MinHeight="26" MinWidth="164" MaxWidth="300" />
+            <TextBox x:Name="timer_text"
+                     Grid.Column="2"
+                     HorizontalAlignment="Center" 
+                     Text="00:00:00" 
+                     FontSize="22" 
+                     FontWeight="Bold" 
+                     Foreground="{StaticResource DarkBlueBrush}" 
+                     Background="{x:Null}" 
+                     BorderBrush="{x:Null}" 
+                     Padding="0,0,0,0"
+                     MinHeight="20" 
+                     IsReadOnly="True" IsHitTestVisible="False"/>
+            <TextBox Grid.Row="2" 
+                     Grid.ColumnSpan="3" 
+                     FontSize="12" 
+                     Padding="0,0,0,0" 
+                     MinHeight="10"
+                     BorderThickness="0.5"/>
 
+            <Border BorderThickness="0.2" 
+                    BorderBrush="DarkRed" 
+                    CornerRadius="1" 
+                    Grid.Column="4"
+                    Width="10" Height="10"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top">
+                <Button Content="&#xE106;"
+                        x:Name="btn_remove"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="Segoe MDL2 Assets"
+                        Foreground="DarkRed"
+                        FontSize="4" 
+                        Padding="0,0,0,0" 
+                        Background="{x:Null}"
+                        Click="Btn_remove_Click"/>
+            </Border>
 
-        <Button Grid.RowSpan="2" Grid.Column="1" x:Name="btn_start" Content="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="32" Height="32" Click="Btn_start_Click" FocusVisualPrimaryBrush="{x:Null}" FocusVisualSecondaryBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/Assets/playbutton.png"/>
-            </Button.Background>
-
-        </Button>
-        <TextBox HorizontalAlignment="Center" Text="Filmfest Emden" VerticalAlignment="Center" FontSize="14" TextAlignment="Center" Height="25" Grid.Row="4" BorderBrush="{x:Null}" MinHeight="16" Padding="0,0,0,0" UseLayoutRounding="True" Margin="0,0,0,0" Background="{x:Null}"/>
-        <TextBox x:Name="timer_text" HorizontalAlignment="Center" Text="00:00:00" VerticalAlignment="Center" FontSize="16" TextAlignment="Center" Height="25" BorderBrush="{x:Null}" MinHeight="16" Padding="0,0,0,0" UseLayoutRounding="True" Margin="0,0,0,0" FocusVisualPrimaryBrush="#FF2EB05D" FontWeight="Bold" Background="{x:Null}"/>
- 
-        <Button x:Name="btn_projectDetails" Click="showProjectDetails" Content="" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Stretch" Background="{x:Null}"/>
-
-    </Grid>
+        </Grid>
+    </ListViewItem>
 </UserControl>

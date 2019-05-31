@@ -4,4 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Interval">
 
+    <Application.Resources>
+        <Color x:Key="mainGreen">#4cbc23</Color>
+        <Color x:Key="darkBlue">#617c8c</Color>
+
+        <SolidColorBrush x:Key="DarkBlueBrush" Color="{StaticResource darkBlue}" />
+        <SolidColorBrush x:Key="MainGreen" Color="{StaticResource mainGreen}" />
+    </Application.Resources>
+
 </Application>
