@@ -41,7 +41,7 @@ namespace Interval
                 MainFrame.Navigate(typeof(ProjectsPage));
             } else if(ClientsListBoxItem.IsSelected)
             {
-                
+                MainFrame.Navigate(typeof(ClientsPage));
             } else if(ReportsListBoxItem.IsSelected)
             {
                 
